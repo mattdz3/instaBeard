@@ -4,31 +4,41 @@ Parse.initialize("M3u0JvCeU0dbgZGeK4aFk4z853HwvPZ38M8Z8E80", "uu7TG9lKX7t1Jq1yg8
 
 var url;
 var caption;
+var photos;
 
-var Post = Parse.Object.extend('Photos');
 
-var query = new Parse.Query(Post);
+var Photo = Parse.Object.extend('Photo');
 
-query.find({
-	success: function(results) {
-		var template = _.template($('.image-temp').text());
-		_.each(results, function (post) {
-			$('.container').append(template(post.attributes))
-		})
-	},
-	error: function(results) {
-		console.log(error.message);
-	}
-})
+// var query = new Parse.Query(Photo);
 
-var post = new Post();
+var photo = new Photo();
+
+console.log(photo)
 
 $('.button-box').click(function() {
-	post.set('url', $('.input-box').val());
-	post.set('caption', $('.caption-box').val());
+	photo.set('url', $('.input-box').val());
+	photo.set('caption', $('.caption-box').val());
 
-	post.save();
+	photo.save();
 })
+
+
+
+
+console.log(photos)
+
+// photos.fetch({
+// 	success: function(photos) {
+// 		console.log('yes')
+// 		photos.each(function(photo){
+// 			console.log(photo)
+// 		})
+
+// 	},
+// 	error: function(post) {
+// 		console.log('no')
+// 	}
+// })
 
 
 
@@ -55,14 +65,7 @@ $('.button-box').click(function() {
 // })
 
 //this grabs all objs 
-post.fetch({
-	success: function(post) {
-		console.log('yes')
-	},
-	error: function(post) {
-		console.log('no')
-	}
-})
+
 
 
 
@@ -71,10 +74,28 @@ post.fetch({
 
 
 /////VIEW/////
+
+
+// var getPost = new PostCollection();
+
+// var postView = new PostView(); 
+
+// getPost.fetch().done(function() {
+// 	getPost.each(function(photos) {
+// 		new PostView({model: photos});
+// 	})
+// });
+
+
+// function getPhotos() {
+
+
+	
+
 // var PostView = Parse.View.extend({
 
-// 	
-
+// 	var template = _.template($('.image-temp').text());
+	
 // 	events: {
 
 // 		"click .button-box" : "addImage" 
@@ -82,8 +103,20 @@ post.fetch({
 
 // 	initialize: function() {
 
-// 		$('.container').append(this.$el)
-// 		this.render();
+// 		query.find({
+// 			success: function(results) {
+				
+
+// 				_.each(results, function (photo) {
+// 					console.log("hello")
+// 					$('.img-cont').append(template(photo.attributes))
+// 				})
+// 			},
+			
+// 			error: function(results) {
+// 				console.log(error.message);
+// 			}
+// 		})
 // 	},
 
 // 	render: function() {
@@ -99,19 +132,6 @@ post.fetch({
 
 // 	},
 // });
-
-// var getPost = new PostCollection();
-
-// var postView = new PostView(); 
-
-// getPost.fetch().done(function() {
-// 	getPost.each(function(photos) {
-// 		new PostView({model: photos});
-// 	})
-// });
-
-
-
 
 
 

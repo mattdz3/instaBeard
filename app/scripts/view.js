@@ -9,7 +9,7 @@ var PostView = Parse.View.extend({
 
 	initialize: function() {
 
-		$('.container').append(this.$el)
+		$('.container').append(this.model)
 		this.render();
 	},
 
