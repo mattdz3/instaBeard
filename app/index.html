@@ -24,16 +24,16 @@
 
 
         <div class="container">
-            <input class="input-box" placeholder="Upload a fucking picture!">
-            <input class="caption-box" placeholder="Add a god damn caption!"></input>
-            <button class="button-box">Add that mother fucker!</button>
-            <input class="comment-box" placeholder="Comment on this dumbass pic!"></input>
+            <input class="input-box" placeholder="Upload a picture!">
+            <input class="caption-box" placeholder="Add a caption!"></input>
+            <button class="button-box">Add that!</button>
+            <input class="comment-box" placeholder="Comment on this pic!"></input>
             <button class="add-comment">Add that comment</button>
         </div>
 
         <script type="text/template" class="image-temp">
 
-        <img src="<%= url %>">
+        <img src="<%= photos.url() %>">
         <div class="<%= caption %>" </div>
 
         </script>
@@ -43,6 +43,7 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/underscore/underscore.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -59,7 +60,9 @@
         </script>
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        
         <script src="scripts/main.js"></script>
+        
         <!-- endbuild -->
 </body>
 </html>

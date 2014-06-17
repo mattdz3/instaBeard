@@ -17,3 +17,4 @@ var PostCollection = Parse.Collection.extend({
 
 	model: 'Post'
 })
+

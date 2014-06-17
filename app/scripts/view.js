@@ -1,5 +1,9 @@
-/////VIEW/////
-var PhotoView = Parse.View.extend({
+"use strict";
+
+var url;
+var caption;
+
+var PostView = Parse.View.extend({
 
 	template: _.template($('.image-temp').text()),
 
@@ -11,7 +15,7 @@ var PhotoView = Parse.View.extend({
 
 	render: function() {
 
-		var renderTemp = this.template(this.model.attributes)
+		var renderTemp = this.template(this.model)
 		this.$el.html(renderTemp);
 		return this;
 	},
@@ -22,9 +26,12 @@ var PhotoView = Parse.View.extend({
 	},
 
 	addImage: function() {
-		console.log('weeee')
-		$('.button-box').click(function() {
-			photos.set('url', newPhoto);
-		})
+		
+		post.set('url', $('.input-box').val());
+		post.set('caption', $('.caption-box').val());
+
+		post.save();
 	},
 });
+
+var postview = new PostView();
