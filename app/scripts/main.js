@@ -7,6 +7,10 @@ var caption;
 var photos;
 
 
+
+
+
+
 var Photo = Parse.Object.extend('Photo');
 
 // var query = new Parse.Query(Photo);
