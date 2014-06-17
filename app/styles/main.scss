@@ -1,0 +1,41 @@
+// bower:scss
+// endbower
+
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.header {
+    margin-bottom: 0.5em;
+    margin-left: 3em;
+    margin-right: 25em;
+    font-size: 5em;
+    text-align: center;
+    color: black;
+}
+
+.container {
+    margin-left: 25em;
+    margin-right: 25em;
+}
+
+.input-box {
+    width: 18em;
+}
+
+.caption-box {
+    margin-left: 2em;
+    width: 18em;
+}
+
+.button-box {
+    width: 15em;
+    float: right;
+}
+
+.comment-box {
+    margin-top: 2em;
+    width: 20em;
+}
