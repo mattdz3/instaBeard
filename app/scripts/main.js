@@ -9,7 +9,7 @@ var Photo = Parse.Object.extend('Photo');
 
 var photo = new Photo();
 
-
+var url;
 $('.button-box').click(function() {
 	photo.set('url', $('.input-box').val());
 	photo.set('caption', $('.caption-box').val());
@@ -35,7 +35,9 @@ var PhotoView = Parse.View.extend({
 	},
 
 	render: function() {
-		var renderTemp = this.template(this.model.attributes)
+		//MASON WHAT THE FUCK?
+		console.log(this.model)
+		var renderTemp = this.template(this.model)
 		this.$el.html(renderTemp);
 		return this;
 	},
@@ -55,99 +57,4 @@ collection.fetch({
 		console.log('no')
 	}
 })
-
-
-// var Comment = Parse.Object.extend({
-
-// 	className: 'Comment'
-// });
-
-// var PostCollection = Parse.Collection.extend({
-
-// 	model: 'Post',
-// })
-
-// var postCollection = new PostCollection();
-
-// var myComment = new Comment();
-
-// $('.add-comment').click(function() {
-// 	myComment.set('url', $('.comment-box').val());
-
-// 	myComment.set('parent', post);
-
-// 	myComment.save();
-// })
-
-//this grabs all objs 
-
-
-
-
-// myComment.fetch({add: true})
-
-
-
-/////VIEW/////
-
-
-// var getPost = new PostCollection();
-
-// var postView = new PostView(); 
-
-// getPost.fetch().done(function() {
-// 	getPost.each(function(photos) {
-// 		new PostView({model: photos});
-// 	})
-// });
-
-
-// function getPhotos() {
-
-
-	
-
-// var PostView = Parse.View.extend({
-
-// 	
-	
-// 	events: {
-
-// 		"click .button-box" : "addImage" 
-// 	},
-
-// 	initialize: function() {
-
-// 		query.find({
-// 			success: function(results) {
-				
-
-// 				_.each(results, function (photo) {
-// 					console.log("hello")
-// 					$('.img-cont').append(template(photo.attributes))
-// 				})
-// 			},
-			
-// 			error: function(results) {
-// 				console.log(error.message);
-// 			}
-// 		})
-// 	},
-
-// 	render: function() {
-
-// 		var renderTemp = this.template(this.model)
-// 		this.$el.html(renderTemp);
-// 		return this;
-// 	},
-
-// 	addImage: function() {
-	
-
-
-// 	},
-// });
-
-
-
 
