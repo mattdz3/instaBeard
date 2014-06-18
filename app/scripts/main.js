@@ -2,14 +2,6 @@
 
 Parse.initialize("M3u0JvCeU0dbgZGeK4aFk4z853HwvPZ38M8Z8E80", "uu7TG9lKX7t1Jq1yg8aF1R6dTPDaHEW2z3PxTLsk");
 
-var url;
-var caption;
-var photos;
-
-
-
-
-
 
 var Photo = Parse.Object.extend('Photo');
 
@@ -17,7 +9,6 @@ var Photo = Parse.Object.extend('Photo');
 
 var photo = new Photo();
 
-console.log(photo)
 
 $('.button-box').click(function() {
 	photo.set('url', $('.input-box').val());
@@ -26,24 +17,44 @@ $('.button-box').click(function() {
 	photo.save();
 })
 
+var PhotoCollection = Parse.Collection.extend({
+
+	model: Photo,
+})
+
+var collection = new PhotoCollection();
 
 
+var PhotoView = Parse.View.extend({
 
-console.log(photos)
+	template: _.template($('.image-temp').text()),
 
-// photos.fetch({
-// 	success: function(photos) {
-// 		console.log('yes')
-// 		photos.each(function(photo){
-// 			console.log(photo)
-// 		})
+	initialize: function() {
+		$('.img-cont').append(this.el)
+		this.render();
+	},
 
-// 	},
-// 	error: function(post) {
-// 		console.log('no')
-// 	}
-// })
+	render: function() {
+		var renderTemp = this.template(this.model.attributes)
+		this.$el.html(renderTemp);
+		return this;
+	},
+})
 
+var view = new PhotoView();
+
+collection.fetch({
+	success: function(photos) {
+		collection.each(function(photo){
+			new PhotoView({model: photo})
+			console.log(photo)
+		})
+
+	},
+	error: function(post) {
+		console.log('no')
+	}
+})
 
 
 // var Comment = Parse.Object.extend({
@@ -98,7 +109,7 @@ console.log(photos)
 
 // var PostView = Parse.View.extend({
 
-// 	var template = _.template($('.image-temp').text());
+// 	
 	
 // 	events: {
 
