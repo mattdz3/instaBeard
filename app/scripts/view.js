@@ -1,37 +1,37 @@
 "use strict";
 
-var url;
-var caption;
-
-var PostView = Parse.View.extend({
+var PhotoView = Parse.View.extend({
 
 	template: _.template($('.image-temp').text()),
 
-	initialize: function() {
+	className: "images",
 
-		$('.container').append(this.model)
+	events: {
+		// "click .button-box" : "savePhoto"
+	},
+
+	initialize: function() {
+		$('.photo-container').prepend(this.el)
 		this.render();
 	},
 
 	render: function() {
-
-		var renderTemp = this.template(this.model)
+		console.log(this.model)
+		var renderTemp = this.template(this.model.attributes)
 		this.$el.html(renderTemp);
 		return this;
 	},
 
-	events: {
+	// savePhoto: function() {
 
-		"click .button-box" : "addImage" 
-	},
+	// 	photo.set({
+	// 		url: this.$el.find('.input-box').val()
+	// 	})
 
-	addImage: function() {
-		
-		post.set('url', $('.input-box').val());
-		post.set('caption', $('.caption-box').val());
+	// 	collection.add(photo);
 
-		post.save();
-	},
-});
+	// 	photo.save();
+	// },
+})
 
-var postview = new PostView();
+

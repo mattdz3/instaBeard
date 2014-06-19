@@ -18,24 +18,37 @@ body {
 
 .container {
     margin-left: 25em;
-    margin-right: 25em;
+    margin-right: 22em;
 }
 
 .input-box {
-    width: 18em;
+    width: 16em;
 }
 
 .caption-box {
     margin-left: 2em;
-    width: 18em;
+    margin-right: 2.8em;
+    margin-bottom: 2em;
+    width: 16em;
 }
 
 .button-box {
-    width: 15em;
-    float: right;
+    width: 5em;
 }
 
 .comment-box {
     margin-top: 2em;
     width: 20em;
+}
+.box.container {
+    margin-top: 3em;
+}
+
+.images img {
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    display: block;
+    width: 30em;
+
+
 }
