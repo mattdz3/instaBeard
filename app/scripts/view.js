@@ -1,5 +1,6 @@
 "use strict";
 
+
 var PhotoView = Parse.View.extend({
 
 	template: _.template($('.image-temp').text()),
@@ -7,11 +8,11 @@ var PhotoView = Parse.View.extend({
 	className: "images",
 
 	events: {
-		// "click .button-box" : "savePhoto"
+		"click .button-box" : "savePhoto"
 	},
 
 	initialize: function() {
-		$('.photo-container').prepend(this.el)
+		$('.photo-container').append(this.el)
 		this.render();
 	},
 
@@ -22,16 +23,19 @@ var PhotoView = Parse.View.extend({
 		return this;
 	},
 
-	// savePhoto: function() {
+	savePhoto: function() {
+		photo.set('url', $('.input-box').val());
 
-	// 	photo.set({
-	// 		url: this.$el.find('.input-box').val()
-	// 	})
+		collection.add(photo);
 
-	// 	collection.add(photo);
-
-	// 	photo.save();
-	// },
+		photo.save();
+	},
 })
 
+$('.button-box').click(function() {
+	photo.set('url', $('.input-box').val());
+	photo.set('caption', $('.caption-box').val());
+
+	photo.save();
+})
 
