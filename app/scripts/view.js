@@ -12,7 +12,7 @@ var PhotoView = Parse.View.extend({
 	},
 
 	initialize: function() {
-		$('.photo-container').append(this.el)
+		$('.photo-container').prepend(this.el)
 		this.render();
 	},
 
