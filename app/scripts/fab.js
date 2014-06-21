@@ -3,12 +3,16 @@
 var canvas = new fabric.Canvas('canvas');
 
 //moustache
-fabric.Image.fromURL('http://www.fantasyfestival.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/o/moustache-m-10-brown-grey-9999904418.png', function(img) {
-  img.scale(.3),
-  img.left = 30,
+var move = new fabric.Image.fromURL('images/moustache.png', function(img) {
+  img.scale(.2),
+  img.top = 0,
+  img.left = 80,
   canvas.add(img);
+  img.filters.push(new fabric.Image.filters.Grayscale());
+  img.applyFilters(canvas.renderAll.bind(canvas));
   img.bringToFront();
 });
+
 
 //beard
 fabric.Image.fromURL('http://static.tumblr.com/23b2d323b41fe20cfd3ee8470e6e8c23/fmfoldl/p4zmreej3/tumblr_static_1363794435702.png', function(img) {
@@ -37,7 +41,7 @@ fabric.Image.fromURL('http://kingsunlimited.com/images/cigar.png', function(img)
 //beer
 fabric.Image.fromURL('http://redesign.sweetgrassbloomington.com/wp-content/uploads/2011/04/photo_beer.png', function(img) {
   img.scale(.5)
-  img.top = 600,
+  img.top = 620,
   img.left = 130,
   canvas.add(img);
 });
@@ -46,7 +50,7 @@ fabric.Image.fromURL('http://redesign.sweetgrassbloomington.com/wp-content/uploa
 fabric.Image.fromURL('http://i.imgur.com/yCbbyfN.png', function(img) {
   img.scale(.5)
   img.top = 840,
-  img.left = 100,
+  img.left = 60,
   canvas.add(img);
 });
 
@@ -59,6 +63,13 @@ fabric.Image.fromURL('http://3.bp.blogspot.com/-CLSUdjZjogg/UwiZtHnQphI/AAAAAAAA
   img.bringToFront();
 });
 
+fabric.Image.fromURL('http://www.officialpsds.com/images/thumbs/Viking-Helmet-psd90145.png', function(img) {
+  img.scale(.3),
+  img.top = 1200,
+  img.left = 90,
+  canvas.add(img);
+  img.bringToFront();
+});
 
 // fabric.Image.fromURL('images/cool_guy.jpg', function(img) {
 

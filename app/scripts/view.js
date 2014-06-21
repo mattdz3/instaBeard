@@ -7,9 +7,9 @@ var PhotoView = Parse.View.extend({
 
 	className: "images",
 
-	events: {
-		"click .button-box" : "savePhoto"
-	},
+	// events: {
+	// 	"click .button-box" : "savePhoto"
+	// },
 
 	initialize: function() {
 		$('.photo-container').prepend(this.el)
@@ -23,19 +23,12 @@ var PhotoView = Parse.View.extend({
 		return this;
 	},
 
-	savePhoto: function() {
-		photo.set('url', $('.input-box').val());
+	// savePhoto: function() {
+	// 	photo.set('url', $('.input-box').val());
 
-		collection.add(photo);
-
-		photo.save();
-	},
+	// 	photo.save();
+	// },
 })
 
-$('.button-box').click(function() {
-	photo.set('url', $('.input-box').val());
-	photo.set('caption', $('.caption-box').val());
 
-	photo.save();
-})
 
