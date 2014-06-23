@@ -14,6 +14,11 @@ var PhotoView = Parse.View.extend({
 	initialize: function() {
 		$('.photo-container').prepend(this.el)
 		this.render();
+
+		//create my own listenTo
+		// listenTo: function(target, event, callback) {
+		// 	target.on(event, callback.bind(this))
+		// }
 	},
 
 	render: function() {
